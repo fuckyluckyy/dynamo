@@ -91,8 +91,8 @@ final class DependencyInjector implements Injector {
                 }
             }
 
-            String formattedExceptionMessage = getDefinitionNotFoundExceptionFormat(additionalDependencies).formatted(type, method);
-            throw new DefinitionNotFoundException(formattedExceptionMessage);
+            throw new DefinitionNotFoundException(getDefinitionNotFoundExceptionFormat(additionalDependencies)
+                    .formatted(type, parameters));
         }
         return dependencies;
     }
